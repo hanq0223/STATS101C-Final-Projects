@@ -1,0 +1,75 @@
+# STATS 101C - Regression Final Project
+
+This file will be used to host all our code, visualizations, and text for the final report. I (Junwon) will move everything over to a document + R script before we submit, so don't worry about the formatting here!
+
+Make sure to Slack the group before working on your code and Slack again after pushing changes!
+
+## Introduction: context and background info. - Tiffany
+
+o Cite any external sources\
+o Can mention what variables you may believe to be associated with the response\
+variable based on background information.\
+o Approximately 100 words. Minimum length 80 words.
+
+## Exploratory Data Analysis - Junwon, Han
+
+o Explore potential relationships between the variables.\
+o Must include graphics showing relationships\
+o Recommended: Transformations of some variables\
+o Recommended: Converting some numeric variables into categorical variables\
+o Recommended: Exploration of possible interactions between variables\
+o Minimum 8 data visualizations. Maximum of 20. All graphs/visualizations must be\
+accompanied by a description of its significance. Descriptions must be a minimum of 20\
+words, recommended something around 50 words.
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(ggplot2)
+```
+
+## Preprocessing / Recipes - Bobo, Samantha
+
+o If you use recipes or perform preprocessing of variables, you must explain the steps you\
+performed and the reasoning behind them.\
+o Length will vary depending on preprocessing steps. \~ 100-500 words seems reasonable.
+
+```{r}
+
+```
+
+## Candidate models / Model evaluation / tuning - Everyone
+
+o This section will discuss the various candidate models that were attempted.\
+o Minimum of 5 candidate models. Maximum of 12 candidate models.\
+o A brief description should accompany each candidate model.\
+o Include a table listing of all candidate models attempted. Columns should include
+
+▪ Model identifier\
+▪ Type of model (e.g. linear regression, knn, random forest)\
+▪ Engine\
+▪ Recipe used or listing of variables in the model\
+▪ Hyperparameters
+
+o Model evaluation and tuning
+
+▪ Discuss the evaluation and comparison of the candidate models that were\
+attempted.\
+▪ Students should use v-fold cross validation to measure the performance of the\
+candidate models\
+▪ Tuning of hyperparameters\
+▪ Include a table summarizing the performance of each model. Columns should include\
+• Model identifier\
+• Metric score (most likely rmse)\
+• SE of metric (if applicable)\
+▪ Include a plot (like autoplot) comparing the performance of the different models.
+
+```{r}
+
+```
+
+## Discussion of final model - Everyone
+
+o Discuss the selection of the final model used for generating predictions.\
+o Discussion of strengths and weaknesses of the model.\
+o Possible improvements, including what additional data could be usef
