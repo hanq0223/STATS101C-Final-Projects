@@ -27,6 +27,66 @@ library(tidyverse)
 library(tidymodels)
 library(ggplot2)
 ```
+```{r}
+## convert the column x2013_code to categorical variables
+train$x2013_code <- factor(train$x2013_code) 
+
+## box plot for the relationship between total votes and percent_Dem
+ggplot(train, aes(x = x2013_code, y = percent_dem)) +
+  geom_boxplot(fill = rainbow(6)) +
+  labs(x = "x2013_code", y = "Percent of voters who voted Biden")
+
+```
+
+```{r}
+## log transform total_votes
+train$total_votes <- log(train$total_votes)
+
+## scatter plot for the relationship between total votes and percent_Dem
+ggplot(train, aes(x = total_votes, y= percent_dem)) +
+  geom_point() +
+  labs(x = "Population of Hispanic or Latino (of any race)", y = "Percent of voters who voted Biden")
+
+```
+
+```{r}
+## log transform income_per_cap_2020
+train$income_per_cap_2020 <- log(train$income_per_cap_2020)
+
+### scatter plot for relationship between income_per_cap_2020 and percent_dem
+ggplot(train, aes(x = income_per_cap_2020, y = percent_dem)) +
+  geom_point() +
+  labs(x = "income per capita for the county in 2020", y = "Percent of voters who voted Biden")
+
+```
+
+```{r}
+## create a plot based on different education group
+education <- train %>%
+  select(percent_dem, c01_007e, c01_008e, c01_009e, c01_010e, c01_011e, c01_012e, c01_013e)
+
+education$c01_007e <- log(education$c01_007e)
+
+education$c01_008e <- log(education$c01_008e)
+
+education$c01_009e <- log(education$c01_009e)
+
+education$c01_010e <- log(education$c01_010e)
+
+education$c01_011e <- log(education$c01_011e)
+
+education$c01_012e <- log(education$c01_012e)
+
+education$c01_013e <- log(education$c01_013e)
+
+
+education_tidy <- education %>%
+  pivot_longer(c("c01_007e", "c01_008e", "c01_009e", "c01_010e", "c01_011e", "c01_012e", "c01_013e"), names_to = "education", values_to = "population")
+ggplot(education_tidy, aes(x = population, y = percent_dem, color = education)) +
+  geom_point() +
+  labs(x = "population for 25 years and over ", y = "Percent of voters who voted Biden") +
+  scale_color_discrete(labels = c("Less than 9th grade", "9th to 12th grade, no diploma", "High school graduate", "Some college, no degree", "Associate's degree", "Bachelor's degree", "Graduate or professional degree")) 
+```
 
 ## Preprocessing / Recipes - Bobo, Samantha
 
